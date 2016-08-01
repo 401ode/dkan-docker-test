@@ -46,3 +46,12 @@ phpmyadmin:
         - mysql
     environment:
         PMA_HOST: mysql
+
+drupal:
+    build: ./drupal/
+    links:
+        - php
+        - mysql
+        - nginx
+    volumes_from:
+        - app

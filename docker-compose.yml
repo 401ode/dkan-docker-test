@@ -12,7 +12,7 @@ php:
     expose:
         - 9000
     links:
-        - mysql
+        - mysql:mysql
     volumes_from:
         - app
 
@@ -49,9 +49,11 @@ phpmyadmin:
 
 drupal:
     build: ./drupal/
+    ports:
+        - 8000:80
     links:
         - php
-        - mysql
+        - mysql:mysql
         - nginx
     volumes_from:
         - app
